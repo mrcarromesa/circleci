@@ -12,12 +12,11 @@ jobs:
     docker:
       - image: circleci/node:12.18.0
     steps:
-      - checkout
       - run: echo "deploied"
 workflows:
   project:
     jobs:
       - build
       - deploy:
-        requires:
-          - build
+          requires:
+           - build
