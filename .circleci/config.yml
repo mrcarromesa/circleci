@@ -18,6 +18,8 @@ jobs:
       - image: circleci/node:12.18.0
     steps:
       - run: echo "started"
+orbs:
+  slack: circleci/slack@3.4.2
 workflows:
   project:
     jobs:
