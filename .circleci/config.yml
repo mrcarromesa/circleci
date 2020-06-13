@@ -18,6 +18,3 @@ workflows:
   project:
     jobs:
       - build
-      - deploy:
-        requires:
-        - build
