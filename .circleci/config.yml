@@ -12,10 +12,13 @@ jobs:
       - checkout
       - run: pwd # run the `echo` command
       - run: ls -a # run the `echo` command
-      - run: cd app/server # run the `echo` command
-      - run: ls -a # run the `echo` command
-      - run: npm install # run the `echo` command
-      - run: npm test # run the `echo` command
+      - run: 
+          name: ir para pasta
+          command: |
+            cd app/server 
+            ls -a
+            npm install # run the `echo` command
+            npm test # run the `echo` command
   deploy:
     docker:
       - image: circleci/node:12.18.0
