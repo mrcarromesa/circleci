@@ -19,6 +19,8 @@ jobs:
             ls -a
             npm install # run the `echo` command
             npm test # run the `echo` command
+      - store_artifacts:
+          path: /tmp/artifacts
   deploy:
     docker:
       - image: circleci/node:12.18.0
