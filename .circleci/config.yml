@@ -14,7 +14,7 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:12.18.0
-    working_directory: ~/app/server
+    working_directory: ~/app
     steps:
       - run: echo "deploied"
       - run: pwd # run the `echo` command
