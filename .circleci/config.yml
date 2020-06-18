@@ -10,6 +10,10 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
+      - run: 
+          name: Escrever variavel
+          command: |
+            echo ${APP_VERSION_CODE}
       - run: pwd # run the `echo` command
       - run: ls -a # run the `echo` command
       - run: 
@@ -25,13 +29,21 @@ jobs:
     docker:
       - image: circleci/node:12.18.0
     steps:
-      - run: echo "deploied"
+      - run: 
+          name: Executar Deploy
+          command: |
+            echo "deploied"
+          environment:
+            APP_VERSION_CODE: $((${APP_VERSION_CODE}+1))
   start:
     docker:
       - image: circleci/node:12.18.0
     steps:
-      - run: echo "started"
-
+      - run: 
+          name: Executar Start
+          command: |
+            echo "started"
+            echo ${APP_VERSION_CODE}
 workflows:
   project:
     jobs:
