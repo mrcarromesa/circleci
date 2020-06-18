@@ -34,8 +34,9 @@ jobs:
       - run: 
           name: Executar Deploy
           command: |
+            cd app/server
             echo 'export APP_V_CODEB=$(($APP_V_CODE+1))' >> $BASH_ENV
-            echo 'export NR_COMMITS=$(git rev-list --no-merges --count master)' >> $BASH_ENV
+            echo 'export NR_COMMITS=$(git rev-list --no-merges --count $CIRCLE_BRANCH)' >> $BASH_ENV
             echo ${APP_V_CODEB}
             echo "deploied"
       - run:
