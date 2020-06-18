@@ -34,7 +34,7 @@ jobs:
       - run: 
           name: Executar Deploy
           command: |
-            echo 'export APP_V_CODEB=$(${APP_V_CODE}+1)' >> $BASH_ENV
+            echo 'export APP_V_CODEB=$(($APP_V_CODE+1))' >> $BASH_ENV
             echo ${APP_V_CODEB}
             echo "deploied"
       - run:
