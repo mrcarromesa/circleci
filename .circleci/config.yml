@@ -31,9 +31,8 @@ jobs:
     steps:
       - run: 
           name: Executar Deploy
-          environment:
-            APP_VERSION_CODE: $((${APP_VERSION_CODE}+1))
           command: |
+            export $(($APP_VERSION_CODE+1))
             echo $APP_VERSION_CODE
             echo "deploied"
   start:
