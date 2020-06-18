@@ -29,7 +29,7 @@ jobs:
     docker:
       - image: circleci/node:12.18.0
     environment:
-      APP_V_CODE: << pipeline.number+1 >>
+      APP_V_CODE: << pipeline.number >>+1
     steps:
       - run: 
           name: Executar Deploy
