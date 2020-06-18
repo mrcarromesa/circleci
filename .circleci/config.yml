@@ -31,10 +31,11 @@ jobs:
     steps:
       - run: 
           name: Executar Deploy
-          command: |
-            echo "deploied"
           environment:
             APP_VERSION_CODE: $((${APP_VERSION_CODE}+1))
+          command: |
+            echo $APP_VERSION_CODE
+            echo "deploied"
   start:
     docker:
       - image: circleci/node:12.18.0
