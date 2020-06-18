@@ -37,6 +37,11 @@ jobs:
             echo 'export APP_V_CODEB=$(${APP_V_CODE}+1)' >> $BASH_ENV
             echo ${APP_V_CODEB}
             echo "deploied"
+      - run:
+          name: Obter numero
+          command: |
+            echo ${APP_V_CODEB}
+            echo "finish"
   start:
     docker:
       - image: circleci/node:12.18.0
