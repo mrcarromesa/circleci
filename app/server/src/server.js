@@ -1,1 +1,3 @@
 //TODO
+
+console.log('server');
