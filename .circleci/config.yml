@@ -44,7 +44,7 @@ jobs:
       - run:
           name: Adicionar numero
           command: |
-            echo 'export NR_COMMITS=$((NR_COMMITS+APP_INCREASE))'
+            echo 'export NR_COMMITS=$((NR_COMMITS+APP_INCREASE))' >> $BASH_ENV
       - run:
           name: Obter numero
           command: |
