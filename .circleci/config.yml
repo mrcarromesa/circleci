@@ -29,6 +29,7 @@ jobs:
     docker:
       - image: circleci/node:12.18.0
     environment:
+      APP_INCREASE: 2
       APP_V_CODE: << pipeline.number >>
     steps:
       - checkout
@@ -40,6 +41,10 @@ jobs:
             echo 'export NR_COMMITS=$(git rev-list --no-merges --count $CIRCLE_BRANCH)' >> $BASH_ENV
             echo ${APP_V_CODEB}
             echo "deploied"
+      - run:
+          name: Adicionar numero
+          command: |
+            echo 'export NR_COMMITS=$((NR_COMMITS+APP_INCREASE))'
       - run:
           name: Obter numero
           command: |
