@@ -69,7 +69,7 @@ jobs:
       - run:
           name: Get version
           command: |
-            cd app/
+            cd app/server
             export PACKAGE_VERSION=$(node -p -e "require('./package.json').version")
             git tag -a ${PACKAGE_VERSION} -m "release ${PACKAGE_VERSION}"
             git push origin master --tags
