@@ -72,6 +72,8 @@ jobs:
       - run:
           name: Get version
           command: |
+            git config --global user.email "mrcarromesa@gmail.com"
+            git config --global user.name "Rodolfo"
             cd app/server
             export PACKAGE_VERSION=$(node -p -e "require('./package.json').version")
             git tag -a ${PACKAGE_VERSION} -m "release ${PACKAGE_VERSION}"
