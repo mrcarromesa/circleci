@@ -55,6 +55,7 @@ jobs:
     docker:
       - image: circleci/node:12.18.0
     steps:
+      - checkout
       - run: 
           name: Executar Start
           command: |
@@ -64,10 +65,11 @@ jobs:
     docker:
       - image: circleci/node:12.18.0
     steps:
+      - checkout
       - run:
           name: Get version
           command: |
-            cd app
+            cd app/
             export PACKAGE_VERSION=$(node -p -e "require('./package.json').version")
             git tag -a ${PACKAGE_VERSION} -m "release ${PACKAGE_VERSION}"
             git push origin master --tags
