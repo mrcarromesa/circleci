@@ -60,6 +60,18 @@ jobs:
           command: |
             echo "started"
             echo ${APP_V_CODE}
+  taging:
+    docker:
+      - image: circleci/node:12.18.0
+    steps:
+      - run:
+          name: Get version
+          command: |
+            cd app
+            export PACKAGE_VERSION=$(node -p -e "require('./package.json').version")
+            git tag -a ${PACKAGE_VERSION} -m "release ${PACKAGE_VERSION}"
+            git push origin master --tags
+
 workflows:
   project:
     jobs:
@@ -68,5 +80,8 @@ workflows:
           requires:
             - build
       - start:
+          requires:
+            - build
+      - taging:
           requires:
             - build
